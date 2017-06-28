@@ -9,7 +9,7 @@ def binary_search(A, T):
     R = len(A) - 1
 
     while L <= R:
-        m = int((L + R) / 2)
+        m = (L + R) // 2
 
         if A[m] < T:
             L = m + 1
@@ -20,7 +20,7 @@ def binary_search(A, T):
         if A[m] == T:
             return m
 
-    return -1
+    return None
 
 
 if __name__ == '__main__':
@@ -29,4 +29,5 @@ if __name__ == '__main__':
     idx = binary_search(array, 4)
 
     print(idx)
+
 
