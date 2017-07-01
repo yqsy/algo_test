@@ -3,6 +3,21 @@
 # Although the idea is simple, implementing binary search correctly requires
 # attention to some subtleties about its exit conditions and midpoint calculation.
 
+import unittest
+
+
+class TestBinarySearch(unittest.TestCase):
+    def test_1(self):
+        array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.assertEqual(binary_search(array,4), 4)
+
+    def test_2(self):
+        array = [0]
+        self.assertEqual(binary_search(array,0), 0)
+
+    def test_3(self):
+        array = []
+        self.assertEqual(binary_search(array, 0), None)
 
 def binary_search(A, T):
     L = 0
@@ -24,10 +39,4 @@ def binary_search(A, T):
 
 
 if __name__ == '__main__':
-    array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    idx = binary_search(array, 4)
-
-    print(idx)
-
-
+    unittest.main()
