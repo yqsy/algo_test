@@ -86,18 +86,18 @@ def partition(A, L, R):
     pivot = A[R]
     left = L
     right = R - 1
-    while left < right:
-        while left < right and A[left] <= pivot:
+    while left <= right:
+        while left <= right and A[left] <= pivot:
             left = left + 1
 
-        while left < right and A[right] >= pivot:
+        while left <= right and A[right] >= pivot:
             right = right - 1
 
-        if left < right:
+        if left <= right:
             A[left], A[right] = A[right], A[left]
 
-    A[R], A[right] = A[right], A[R]
-    return right
+    A[R], A[left] = A[left], A[R]
+    return left
 
 
 if __name__ == '__main__':
