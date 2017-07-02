@@ -11,19 +11,18 @@ import unittest
 
 
 class TestPartition(unittest.TestCase):
-    pass
-    # def test_1(self):
-    #     array = [9, 8, 7, 6, 0, 4, 3, 2, 1, 5]
-    #     mid_idx = partition(array, 0, len(array) - 1)
-    #     self.assertEqual(array[mid_idx], 9)
-    #     for i in array[0:mid_idx]:
-    #         self.assertTrue(array[i] <= array[mid_idx])
-    #
-    # def test_2(self):
-    #     array = [9, 8, 7, 6, 0, 4, 3, 2, 1, 5]
-    #     mid_idx = partition(array, 0, len(array) - 1)
-    #     for i in array[mid_idx + 1:len(array)]:
-    #         self.assertTrue(array[i] > mid_idx)
+    def test_1(self):
+        array = [9, 8, 7, 6, 0, 4, 3, 2, 1, 5]
+        mid_idx = partition(array, 0, len(array) - 1)
+        self.assertEqual(array[mid_idx], 5)
+        for i in array[0:mid_idx]:
+            self.assertTrue(array[i] <= array[mid_idx])
+
+    def test_2(self):
+        array = [9, 8, 7, 6, 0, 4, 3, 2, 1, 5]
+        mid_idx = partition(array, 0, len(array) - 1)
+        for i in array[mid_idx + 1:len(array)]:
+            self.assertTrue(array[i] > mid_idx)
 
 
 class TestQuicksort(unittest.TestCase):
