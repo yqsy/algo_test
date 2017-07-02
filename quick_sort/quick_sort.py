@@ -14,7 +14,6 @@ class TestPartition(unittest.TestCase):
     def test_1(self):
         array = [9, 8, 7, 6, 0, 4, 3, 2, 1, 5]
         mid_idx = partition(array, 0, len(array) - 1)
-        self.assertEqual(array[mid_idx], 5)
         for i in array[0:mid_idx]:
             self.assertTrue(array[i] <= array[mid_idx])
 
@@ -60,31 +59,11 @@ def quciksort(A, L, R):
     return A
 
 
-# def partition(A, L, R):
-#     pivot = A[L]
-#     left = L + 1
-#     right = R
-#     done = False
-#     while not done:
-#         while left <= right and A[left] <= pivot:
-#             left = left + 1
-#
-#         while left <= right and A[right] >= pivot:
-#             right = right - 1
-#
-#         if left > right:
-#             done = True
-#         else:
-#             A[left], A[right] = A[right], A[left]
-#
-#     A[L], A[right] = A[right], A[L]
-#     return right
-
-
 def partition(A, L, R):
-    pivot = A[R]
-    left = L
-    right = R - 1
+    pivot = A[L]
+    left = L + 1
+    right = R
+    done = False
     while left <= right:
         while left <= right and A[left] <= pivot:
             left = left + 1
@@ -95,8 +74,26 @@ def partition(A, L, R):
         if left <= right:
             A[left], A[right] = A[right], A[left]
 
-    A[R], A[left] = A[left], A[R]
-    return left
+    A[L], A[right] = A[right], A[L]
+    return right
+
+
+# def partition(A, L, R):
+#     pivot = A[R]
+#     left = L
+#     right = R - 1
+#     while left <= right:
+#         while left <= right and A[left] <= pivot:
+#             left = left + 1
+#
+#         while left <= right and A[right] >= pivot:
+#             right = right - 1
+#
+#         if left <= right:
+#             A[left], A[right] = A[right], A[left]
+#
+#     A[R], A[left] = A[left], A[R]
+#     return left
 
 
 if __name__ == '__main__':
